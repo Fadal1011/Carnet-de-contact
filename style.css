@@ -87,6 +87,14 @@ table.blueTable {
     font-size: 17px;
   }
 
+  table.blueTable tbody tr {
+    cursor: pointer;
+  }
+
+  table.blueTable tbody tr:hover{
+    background: var(--pink);
+  }
+
   table.blueTable tbody .action{
     display: flex;
     justify-content: center;

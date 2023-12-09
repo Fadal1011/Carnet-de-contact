@@ -136,7 +136,14 @@ btnOpenFormForAddContact.addEventListener('click',()=>{
         let telephone = document.getElementsByName('Telephone')[0].value
         let Adresse = document.getElementsByName('Adresse')[0].value
 
-        addContact(nom, prenom, Adresse, email, telephone, Categorie)
+        if (nom && prenom && Categorie && email && telephone && Adresse) {
+            // Ajouter le contact seulement si tous les champs sont non vides
+            addContact(nom, prenom, Adresse, email, telephone, Categorie);
+        } else {
+            // Afficher un message d'erreur ou prendre une autre action en conséquence
+            notification("Veuillez remplir tous les champs");
+            // Vous pouvez également afficher un message à l'utilisateur pour l'informer des champs manquants.
+        }
     })
 
 });
