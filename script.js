@@ -10,17 +10,16 @@ let btnOpenFormForAddContact = document.querySelector('.ajouterContact');
 let selectCategorie = document.querySelector('.selectCategorie');
 var notif = document.querySelector('.alerts');
 var close = document.querySelector('.close');
-
+let selectFiltre = document.querySelector('.selectFiltre');
+let btnFiltrage = document.querySelector('.btnFiltrage');
 
 
 
 function filterContacts() {
-    // Récupérer les valeurs des champs de filtre
     let filterNom = document.getElementById('filterNom').value.toLowerCase();
     let filterPrenom = document.getElementById('filterPrenom').value.toLowerCase();
     let filterCategorie = document.getElementById('filterCategorie').value.toLowerCase();
 
-    // Filtrer les contacts
     let ligneContacts = document.querySelectorAll('.ligneContact');
     ligneContacts.forEach(ligne => {
         let nom = ligne.querySelector('td:nth-child(1)').innerText.toLowerCase();
@@ -34,6 +33,53 @@ function filterContacts() {
         }
     });
 }
+
+selectFiltre.addEventListener('change',()=>{
+    btnFiltrage.style.display = "block"
+    console.log(selectFiltre.value);
+    let filterNom = document.getElementById('filterNom').value.toLowerCase();
+    let filterPrenom = document.getElementById('filterPrenom').value.toLowerCase();
+    let filterCategorie = document.getElementById('filterCategorie').value.toLowerCase();
+    let filterNomDisplay = document.getElementById('filterNom');
+    let filterPrenomDisplay  = document.getElementById('filterPrenom');
+    let filterCategorieDisplay  = document.getElementById('filterCategorie');
+
+
+    let ligneContacts = document.querySelectorAll('.ligneContact');
+    ligneContacts.forEach(ligne => {
+        let nom = ligne.querySelector('td:nth-child(1)').innerText.toLowerCase();
+        let prenom = ligne.querySelector('td:nth-child(2)').innerText.toLowerCase();
+        let categorie = ligne.querySelector('td:nth-child(3)').innerText.toLowerCase();
+        if(selectFiltre.value == ""){
+            btnFiltrage.style.display = "none"
+            filterNomDisplay.style.display = "none"
+            filterPrenomDisplay.style.display = "none"
+            filterCategorieDisplay.style.display = "none"
+        }
+
+        if(selectFiltre.value == "nom"){
+            filterNomDisplay.style.display = "block"
+            filterPrenomDisplay.style.display = "none"
+            filterCategorieDisplay.style.display = "none"
+        }
+        if(selectFiltre.value == "prenom"){
+            filterNomDisplay.style.display = "none"
+            filterPrenomDisplay.style.display = "block"
+            filterCategorieDisplay.style.display = "none"
+        }
+        if(selectFiltre.value == "categorie"){
+            filterNomDisplay.style.display = "none"
+            filterPrenomDisplay.style.display = "none"
+            filterCategorieDisplay.style.display = "block"
+        }
+
+        if (nom.includes(filterNom) && prenom.includes(filterPrenom) && categorie.includes(filterCategorie)) {
+            ligne.style.display = "table-row";
+        } else {
+            ligne.style.display = "none";
+        }
+    });
+})
 
 
 //tri

@@ -7,9 +7,8 @@
 
 
 :root{
-    --red:#4E168B;
+    --pink:#4E168B;
     --primary_color:#E9E9EA;
-    /* --secondary_color:#E9E9EA; */
     --ToutNoir:rgb(26, 25, 25);
     --toutBlanc:#e0e0e0;
   }
@@ -30,8 +29,13 @@ body{
     width: 55%;
     display: flex;
     gap: 1rem;
-    justify-content: space-between;
 }
+
+.filter .select{
+    width: 40%;
+    border: solid gray .1rem;
+}
+
 
 .trier{
     position: relative;
@@ -43,27 +47,33 @@ body{
     gap: 1rem;
     justify-content: space-between;
 }
-.filter input{
+.filter input,.filter select{
     width: 40%;
     padding: .5rem 0;
-    background: none;
     border: solid gray .1rem;
+    display: none;
+}
+.filter select{
+    display: block;
 }
 
 .filter .btnFiltrage,.trier button{
-    background: var(--red);
-    border: var(--red) solid .1rem;
+    background: var(--pink);
+    border: var(--pink) solid .1rem;
     cursor: pointer;
     color: white;
     width: 30%;
     padding: .5rem 0;
 }
 
+.filter .btnFiltrage{
+    display: none;
+}
+
 table.blueTable {
     position: relative;
     left: 50%;
     transform: translate(-50%,0);
-    /* border: 1px solid #1C6EA4; */
     background-color: var(--primary_color);
     width: 80%;
     text-align: left;
@@ -85,7 +95,7 @@ table.blueTable {
   }
 
   table.blueTable thead {
-    background: var(--red);
+    background: var(--pink);
   }
   table.blueTable thead th {
     font-size: 15px;
@@ -133,7 +143,7 @@ table.blueTable {
   .information{
     font-size: 1.2rem;
     margin: .6rem 0;
-    color: var(--red);
+    color: var(--pink);
   }
   
   .information span{
@@ -225,7 +235,7 @@ table.blueTable {
     display: flex;
     align-items: center;
     padding-left: 30px;
-    color: var(--red);
+    color: var(--pink);
     display: none;
   }
   
@@ -248,7 +258,7 @@ table.blueTable {
     width: 16px;
     border-radius: 50%;
     left: 0px;
-    background-color: var(--red);
+    background-color: var(--pink);
   }
   
   .message, 
@@ -266,7 +276,7 @@ table.blueTable {
   }
   
   .signin a {
-    color: var(--red);
+    color: var(--pink);
   }
   
   .flex {
@@ -306,7 +316,7 @@ table.blueTable {
   
   .form label .input:focus + span,
   .form label .input:valid + span {
-    color: var(--red);
+    color: var(--pink);
     top: 0px;
     font-size: 0.7em;
     font-weight: 600;
@@ -324,7 +334,7 @@ table.blueTable {
     color: #fff;
     font-size: 16px;
     transform: .3s ease;
-    background-color: var(--red);
+    background-color: var(--pink);
     display: none;
   }
 
@@ -365,7 +375,7 @@ table.blueTable {
     border: 1px solid white;
     width: var(--plus_sideLength);
     height: var(--plus_sideLength);
-    background-color:var(--red);
+    background-color:var(--pink);
     overflow: hidden;
     margin: 2rem;
   }

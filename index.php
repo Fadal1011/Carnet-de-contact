@@ -23,6 +23,12 @@
 
     <div class="listContact">
         <div class="filter">
+            <select name="" id="" class="selectFiltre">
+                <option value="">choisir type de filtre</option>
+                <option value="nom">nom</option>
+                <option value="prenom">prenom</option>
+                <option value="categorie">categorie</option>
+            </select>
             <input type="text" id="filterNom" placeholder="Filtrer par Nom">
             <input type="text" id="filterPrenom" placeholder="Filtrer par Prénom">
             <input type="text" id="filterCategorie" placeholder="Filtrer par Catégorie">
@@ -77,7 +83,6 @@
     <form class="form">
     <p class="title update">Modifier le contact </p>
     <p class="title add">Ajouter un contact</p>
-    <!-- <p class="message">Signup now and get full access to our app. </p> -->
         <div class="flex">
         <label>
             <input class="input" name="Prenom" type="text" placeholder="" required="">

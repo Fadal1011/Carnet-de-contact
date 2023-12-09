@@ -24,7 +24,7 @@ class Contact{
     }
 
     public function getContact(){
-        $query ="SELECT contact.id,contact.id_categorie,contact.nom,contact.prenom,contact.Email,contact.Telephone,contact.Adresse,categorie.libelle FROM `contact` INNER JOIN `categorie` ON contact.id_categorie = `categorie`.id";
+        $query ="SELECT contact.id,contact.id_categorie,contact.nom,contact.prenom,contact.Email,contact.Telephone,contact.Adresse,categorie.libelle FROM `contact` INNER JOIN `categorie` ON contact.id_categorie = `categorie`.id ORDER BY `contact`.`id` DESC";
         $stmt=$this->conn->query($query);
         return $stmt->fetchAll();
     }
@@ -50,8 +50,6 @@ class Contact{
         );
         $stmt->execute($param);
     }
-
-
 
     public function update($id,$nom,$prenom,$adresse,$email,$telephone,$categorie_id){
         $update = "UPDATE `contact` SET nom = :nom, prenom = :prenom, Email = :email,Adresse = :adresse,Telephone = :telephone,id_categorie = :id_categorie WHERE id = :id";
